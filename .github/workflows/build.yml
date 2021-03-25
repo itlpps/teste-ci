@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -21,7 +21,6 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn build
-      - run: ls -la
 
       - name: Upload to Server
         uses: appleboy/scp-action@master
@@ -30,12 +29,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.KEY_SSH }}
           source: "dist"
-          target: "/home/ezdevs/teste-ci"
-
-      - name: LS server
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY_SSH }}
-          script: ls -la
+          target: ${{ secrets.TARGET }}
