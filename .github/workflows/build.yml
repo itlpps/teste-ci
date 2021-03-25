@@ -19,5 +19,10 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      - name: Dotenv Action
+        uses: falti/dotenv-action@v0.2.5
+        run: ${{ steps.dotenv.outputs.api_key }}
+
       - run: yarn
       - run: yarn build
