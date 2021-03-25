@@ -20,8 +20,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
         
-      - run: echo "${{ secrets.QA_ENV_FILE }}" > .env
-      - run: cat .env
-
-      - run: yarn
-      - run: yarn build
+      - run: echo ${{ secrets.QA_ENV_FILE }} > .env
+      
+      - name: Upload artifacts
+        uses: appleboy/scp-action@master
+        with:
+            host: ${{ secrets.HOST }}
+            username: ${{ secrets.USERNAME }}
+            key: ${{ secrets.KEY_SSH }}
+            source: '.env'
+            target: /home/ezdevs/eznetwork-web
