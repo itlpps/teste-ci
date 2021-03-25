@@ -1,9 +1,9 @@
 name: BUILD
 
 on:
-  push:
-    branches:
-      - master
+  release:
+    types: 
+      - published
 
 jobs:
   build:
@@ -19,5 +19,5 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-        
-      - run: echo "Master pushed"
+
+      - run: echo "Release published"
