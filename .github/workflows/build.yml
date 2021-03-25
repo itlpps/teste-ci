@@ -21,13 +21,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: yarn
       - run: yarn build
-      - run: echo "buildado"
-      - run: ${{ secrets.GIT_LOG }}
-
-      - name: SSH Remote Commands
-        uses: appleboy/ssh-action@v0.1.4
-        with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.KEY_SSH }}
-          script: ls -la
+      - run: ls -la
