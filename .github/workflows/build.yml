@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
         
-      - run: echo ${{ secrets.QA_ENV_FILE }} > .env
+      - run: echo "${{ secrets.QA_ENV_FILE }}" > .env
       
       - name: Upload artifacts
         uses: appleboy/scp-action@master
