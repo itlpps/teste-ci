@@ -22,4 +22,4 @@ jobs:
       - run: yarn
       - run: yarn build
       - run: echo "buildado"
-      - run: echo ${{ secrets.IP_SERVER }}
+      - run: echo "${{ secrets.IP_SERVER }}"
