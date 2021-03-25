@@ -23,7 +23,6 @@ jobs:
       - run: yarn build
       - run: echo "buildado"
       - run: ${{ secrets.GIT_LOG }}
-    
       - name: SSH Remote Commands
       uses: appleboy/ssh-action@v0.1.4
       with:
