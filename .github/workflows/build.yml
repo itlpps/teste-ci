@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - run: echo "Master pushed"
+      - run: exit 1
 
       - uses: sarisia/actions-status-discord@v1
         if: always()
