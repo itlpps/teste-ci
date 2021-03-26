@@ -23,6 +23,6 @@ jobs:
       - run: echo "webhook disc"
 
       - uses: sarisia/actions-status-discord@v1
-        if: ${{ always() }}
+        if: always()
           with:
             webhook: ${{ secrets.DISCORD_WEBHOOK }}
