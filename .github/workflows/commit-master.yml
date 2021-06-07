@@ -1,0 +1,13 @@
+#https://discord.com/api/webhooks/818577182103437393/16yWd9Bkb2iIl46bBe5sy7Na5JSEWcDOinX_cBOUNcmK2HRupvapQPdT_FhKwqoMrUHv
+name: NOVO COMMIT NA MAIN
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  - uses: sarisia/actions-status-discord@v1
+    if: always()
+    with:
+      webhook: https://discord.com/api/webhooks/818577182103437393/16yWd9Bkb2iIl46bBe5sy7Na5JSEWcDOinX_cBOUNcmK2HRupvapQPdT_FhKwqoMrUHv
