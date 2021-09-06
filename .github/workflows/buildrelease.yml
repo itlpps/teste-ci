@@ -11,7 +11,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [10.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -29,6 +29,6 @@ jobs:
             username: ${{ secrets.USERNAME }}
             key: ${{ secrets.KEY_SSH }}
             source: 'github-actions.txt'
-            target: '/home/ezdevs'
+            target: '/home/ubuntu/test'
 
       - run: echo "Release published"
